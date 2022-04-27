@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import "../styles/EditStudent.css"
 
 export default function EditStudents(props) {
   const params = useParams();
@@ -30,27 +31,27 @@ export default function EditStudents(props) {
   }, []);
 
   return (
-    <div className="editsudnts">
+    <div className="editStudents">
       <div className="container">
-        <div className="d-flex py-2">
+        <div className="jadval d-flex py-2">
           <input
             type="text"
             placeholder="Enter your name..."
-            className="form-control me-2 input1"
+            className="form-control me-2 input1 mb-2 mb-md-0"
             onChange={(e) => setName(e.target.value)}
             value={name}
           />
           <input
             type="email"
             placeholder="Enter your email..."
-            className="form-control me-2 input2"
+            className="form-control me-2 input2 mb-2 mb-md-0"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
           <input
             type="number"
             placeholder="Enter your number..."
-            className="form-control me-2 input3"
+            className="form-control me-2 input3 mb-2 mb-md-0"
             onChange={(e) => setNumber(+e.target.value)}
             value={number}
           />

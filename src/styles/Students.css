@@ -1,0 +1,11 @@
+@media (max-width: 767px) {
+  .Students .container .forma {
+    flex-direction: column;
+  }
+  .Students .container .jadval {
+    overflow: scroll;
+  }
+  .Students .container .jadval .table {
+    width: 600px;
+  }
+}

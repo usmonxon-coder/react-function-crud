@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import "../styles/Students.css";
 
 export default function Students(props) {
   const [name, setName] = useState("");
@@ -57,11 +58,11 @@ export default function Students(props) {
     <div className="Students">
       <div className="container">
         <h1 className="text-center py-2">Students</h1>
-        <div className="d-flex py-2">
+        <div className="forma d-flex py-2">
           <input
             type="text"
             placeholder="Enter your name..."
-            className="form-control me-2 input1"
+            className="form-control me-2 input1 mb-2 mb-md-0"
             value={name}
             onChange={(e) => setName(e.target.value)}
             ref={nameRef}
@@ -69,7 +70,7 @@ export default function Students(props) {
           <input
             type="email"
             placeholder="Enter your email..."
-            className="form-control me-2 input2"
+            className="form-control me-2 input2 mb-2 mb-md-0"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             ref={emailRef}
@@ -80,7 +81,7 @@ export default function Students(props) {
           <input
             type="number"
             placeholder="Enter your number..."
-            className="form-control me-2 input3"
+            className="form-control me-2 input3 mb-2 mb-md-0"
             value={number}
             onChange={(e) => setNumber(+e.target.value)}
             ref={numberRef}
@@ -93,54 +94,56 @@ export default function Students(props) {
             Add
           </button>
         </div>
-        <table className="table table-dark">
-          <thead>
-            <tr>
-              <th scope="col">id</th>
-              <th scope="col">Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Number</th>
-              <th className="text-center" scope="col">
-                Action
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {props.students &&
-              props.students.map((item, index) => (
-                <tr key={index}>
-                  <th scope="row">{item.id}</th>
-                  <td>{item.name}</td>
-                  <td>{item.email}</td>
-                  <td>{item.number}</td>
-                  <td className="text-center">
-                    <Link
-                      to={`/EditStudents/${item.id}`}
-                      className="btn btn-warning me-2"
-                    >
-                      Edit
-                    </Link>
-                    <button
-                      onClick={() => {
-                        props.setstudents(
-                          props.students.filter(
-                            (item1) => item1.id !== item.id
-                          ),
-                          toast.success("Malumot ochirildi", {
-                            position: "top-center",
-                            autoClose: 2000,
-                          })
-                        );
-                      }}
-                      className="btn btn-danger"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+        <div className="jadval">
+          <table className="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Number</th>
+                <th className="text-center" scope="col">
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {props.students &&
+                props.students.map((item, index) => (
+                  <tr key={index}>
+                    <th scope="row">{item.id}</th>
+                    <td>{item.name}</td>
+                    <td>{item.email}</td>
+                    <td>{item.number}</td>
+                    <td className="text-center">
+                      <Link
+                        to={`/EditStudents/${item.id}`}
+                        className="btn btn-warning me-2"
+                      >
+                        Edit
+                      </Link>
+                      <button
+                        onClick={() => {
+                          props.setstudents(
+                            props.students.filter(
+                              (item1) => item1.id !== item.id
+                            ),
+                            toast.success("Malumot ochirildi", {
+                              position: "top-center",
+                              autoClose: 2000,
+                            })
+                          );
+                        }}
+                        className="btn btn-danger"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
